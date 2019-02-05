@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Page Title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" media="screen" href="static/bootstrap.min.css" >
+</head>
+
+<body>
+
+   <div class = "container">
+       <h1>please login</h1>
+       <br>
+       <form action="" method="post">
+           
+           <p>
+               name
+           </p>
+
+           <input type = "text" placeholder = "Username" name="username" value="{{
+               request.form.username }}">
+
+           <p>password</p>
+
+           <input type = "password" placeholder = "Enter password" name="password" value="{{
+               request.form.password }}">
+
+           <input class ="btn btn-default" type = "submit" value = "Login">
+
+           
+       </form>
+       
+       {% if error %}
+       {% for message in get_flashed_messages() %}
+
+         {{ message }}
+
+        {% endfor %}
+
+
+           <p class="error"><strong>Error:</strong> {{ error }} </p>
+
+       {% endif %}
+
+   </div> 
+    
+</body>
+
+
+</html>
